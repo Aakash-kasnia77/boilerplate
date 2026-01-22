@@ -1,16 +1,18 @@
 import { Link, Outlet } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuthStore } from '../store/authStore'
+import toast from 'react-hot-toast'
 
 export default function AppLayout() {
-  const { session, logout } = useAuth()
+  const session = useAuthStore((s) => s.session)
+  const logout = useAuthStore((s) => s.logout)
 
   return (
-    <div className="min-h-screen w-full bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-dvh w-full bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <header className="border-b border-slate-200 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-slate-950/60">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-4">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
           <Link
             to="/dashboard"
-            className="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+            className="text-base font-semibold text-indigo-600 hover:underline dark:text-indigo-400 sm:text-lg"
           >
             Boilerplate
           </Link>
@@ -21,8 +23,11 @@ export default function AppLayout() {
             </span>
             <button
               type="button"
-              onClick={logout}
-              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10"
+              onClick={() => {
+                logout()
+                toast.success('Signed out.')
+              }}
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10"
             >
               Sign out
             </button>
@@ -30,10 +35,9 @@ export default function AppLayout() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-5xl px-4 py-8">
+      <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
         <Outlet />
       </main>
     </div>
   )
 }
-

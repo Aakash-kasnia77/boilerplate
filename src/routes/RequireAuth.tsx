@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuthStore } from '../store/authStore'
 
 export default function RequireAuth() {
-  const { isAuthenticated } = useAuth()
+  const isAuthenticated = useAuthStore((s) => s.session != null)
   const location = useLocation()
 
   if (!isAuthenticated) {
@@ -17,4 +17,3 @@ export default function RequireAuth() {
 
   return <Outlet />
 }
-

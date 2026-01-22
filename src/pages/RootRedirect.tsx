@@ -1,8 +1,7 @@
 import { Navigate } from 'react-router-dom'
-import { useAuth } from '../auth/AuthContext'
+import { useAuthStore } from '../store/authStore'
 
 export default function RootRedirect() {
-  const { isAuthenticated } = useAuth()
+  const isAuthenticated = useAuthStore((s) => s.session != null)
   return <Navigate to={isAuthenticated ? '/dashboard' : '/login'} replace />
 }
-

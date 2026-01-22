@@ -1,18 +1,4 @@
-export type AuthUser = {
-  email: string
-}
-
-export type AuthSession = {
-  token: string
-  user: AuthUser
-}
-
-export type StoredUser = {
-  email: string
-  passwordHash: string
-  salt: string
-  createdAt: string
-}
+import type { AuthSession, StoredUser } from '../types/auth'
 
 const SESSION_KEY = 'boilerplate.session.v1'
 const USERS_KEY = 'boilerplate.users.v1'
@@ -67,4 +53,3 @@ export function readUsers(): StoredUser[] {
 export function writeUsers(users: StoredUser[]): void {
   writeJson(USERS_KEY, users)
 }
-

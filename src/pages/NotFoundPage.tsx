@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { ButtonLink } from '../components/ui'
 
 export default function NotFoundPage() {
   return (
@@ -12,18 +12,12 @@ export default function NotFoundPage() {
         </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link
-            className="inline-flex w-full items-center justify-center rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 sm:w-auto"
-            to="/"
-          >
+          <ButtonLink fullWidth className="sm:w-auto" to="/">
             Go home
-          </Link>
-          <Link
-            className="inline-flex w-full items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 sm:w-auto"
-            to="/login"
-          >
+          </ButtonLink>
+          <ButtonLink variant="secondary" fullWidth className="sm:w-auto" to="/login">
             Sign in
-          </Link>
+          </ButtonLink>
         </div>
       </div>
     </div>

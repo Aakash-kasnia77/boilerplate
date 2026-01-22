@@ -1,6 +1,5 @@
 import { ValidationError } from 'yup'
-
-export type YupFieldErrors<TFields extends string> = Partial<Record<TFields, string>>
+import type { YupFieldErrors } from '../types/validation'
 
 export function getYupFieldErrors<TFields extends string>(
   err: unknown,
@@ -18,4 +17,3 @@ export function getYupFieldErrors<TFields extends string>(
   if (!Object.keys(fieldErrors).length) return null
   return fieldErrors
 }
-

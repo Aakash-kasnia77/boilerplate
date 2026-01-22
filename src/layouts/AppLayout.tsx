@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
-import { useAuthStore } from '../store/authStore'
 import toast from 'react-hot-toast'
+import { Button } from '../components/ui'
+import { useAuthStore } from '../store/authStore'
 
 export default function AppLayout() {
   const session = useAuthStore((s) => s.session)
@@ -21,16 +22,16 @@ export default function AppLayout() {
             <span className="hidden text-sm text-slate-600 dark:text-slate-400 sm:inline">
               {session?.user.email}
             </span>
-            <button
-              type="button"
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={() => {
                 logout()
                 toast.success('Signed out.')
               }}
-              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10"
             >
               Sign out
-            </button>
+            </Button>
           </div>
         </div>
       </header>

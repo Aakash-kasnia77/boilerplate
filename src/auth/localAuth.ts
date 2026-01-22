@@ -1,11 +1,6 @@
 import { createSalt, createSessionToken, hashPassword } from './authCrypto'
-import { readUsers, type AuthSession, type StoredUser, writeUsers } from './authStorage'
-
-export type AuthErrorCode =
-  | 'INVALID_EMAIL'
-  | 'WEAK_PASSWORD'
-  | 'EMAIL_IN_USE'
-  | 'INVALID_CREDENTIALS'
+import { readUsers, writeUsers } from './authStorage'
+import type { AuthCredentials, AuthErrorCode, AuthSession, StoredUser } from '../types/auth'
 
 export class AuthError extends Error {
   readonly code: AuthErrorCode
@@ -14,11 +9,6 @@ export class AuthError extends Error {
     super(message)
     this.code = code
   }
-}
-
-type Credentials = {
-  email: string
-  password: string
 }
 
 function normalizeEmail(email: string): string {
@@ -40,7 +30,7 @@ function findUser(users: StoredUser[], email: string): StoredUser | undefined {
   return users.find((u) => normalizeEmail(u.email) === normalized)
 }
 
-export async function signUp({ email, password }: Credentials): Promise<AuthSession> {
+export async function signUp({ email, password }: AuthCredentials): Promise<AuthSession> {
   const normalizedEmail = normalizeEmail(email)
   if (!isValidEmail(normalizedEmail)) {
     throw new AuthError('INVALID_EMAIL', 'Enter a valid email address.')
@@ -68,7 +58,7 @@ export async function signUp({ email, password }: Credentials): Promise<AuthSess
   }
 }
 
-export async function logIn({ email, password }: Credentials): Promise<AuthSession> {
+export async function logIn({ email, password }: AuthCredentials): Promise<AuthSession> {
   const normalizedEmail = normalizeEmail(email)
   if (!isValidEmail(normalizedEmail)) {
     throw new AuthError('INVALID_EMAIL', 'Enter a valid email address.')
@@ -90,4 +80,3 @@ export async function logIn({ email, password }: Credentials): Promise<AuthSessi
     user: { email: normalizedEmail },
   }
 }
-

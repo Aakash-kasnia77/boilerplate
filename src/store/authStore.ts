@@ -1,6 +1,7 @@
 import { create } from 'zustand'
-import { clearSession, readSession, type AuthSession, writeSession } from '../auth/authStorage'
+import { clearSession, readSession, writeSession } from '../auth/authStorage'
 import { logIn, signUp } from '../auth/localAuth'
+import type { AuthSession } from '../types/auth'
 
 type AuthStore = {
   session: AuthSession | null
@@ -26,4 +27,3 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ session: null })
   },
 }))
-

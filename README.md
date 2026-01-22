@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# React + Vite + TypeScript Starter Boilerplate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, production-ready React boilerplate built with **Vite + TypeScript**, focused on scalability, clean architecture, and real-world authentication flows.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ Vite + React + TypeScript
+- 🎨 Tailwind CSS (fully responsive, mobile-first)
+- 🔐 Authentication flow (Login / Signup)
+- 🛡 Public & Protected Routes
+- 🗂 Global state management with Zustand
+- 🧩 Reusable UI components (Buttons, Inputs, etc.)
+- 📱 Fully mobile responsive dashboard layout
+- 🧼 Clean folder structure & best practices
 
-## React Compiler
+## 🧱 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- Vite
+- TypeScript
+- Tailwind CSS
+- Zustand
+- React Router DOM
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+├── public/ # Static assets
+├── src/
+│ ├── assets/ # Images, icons, static resources
+│ ├── auth/ # Authentication logic & helpers
+│ ├── components/ # Reusable global UI components
+│ ├── layouts/ # App & dashboard layouts
+│ ├── pages/ # Application pages (Login, Signup, Dashboard)
+│ ├── routes/ # Public & protected route definitions
+│ ├── store/ # Zustand global stores
+│ ├── types/ # Global TypeScript types & interfaces
+│ ├── validation/ # Form validation schemas / helpers
+│ ├── App.tsx # Root app component
+│ ├── main.tsx # Application entry point
+│ └── index.css # Global styles (Tailwind entry)
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.cjs
+├── tailwind.config.cjs
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```bash
+git clone <your-repo-url>
+cd project-name
+npm install
+npm run dev

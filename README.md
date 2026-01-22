@@ -1,6 +1,10 @@
 # React + Vite + TypeScript Starter Boilerplate
 
-A modern, production-ready React boilerplate built with **Vite + TypeScript**, focused on scalability, clean architecture, and real-world authentication flows.
+A modern, production-ready React boilerplate built with **Vite + TypeScript**, designed for real-world applications with authentication, protected routing, global state management, and a scalable folder structure.
+
+This is not a demo project — it’s a solid starting point for dashboards, SaaS apps, and authenticated web applications.
+
+---
 
 ## ✨ Features
 
@@ -8,36 +12,43 @@ A modern, production-ready React boilerplate built with **Vite + TypeScript**, f
 - 🎨 Tailwind CSS (fully responsive, mobile-first)
 - 🔐 Authentication flow (Login / Signup)
 - 🛡 Public & Protected Routes
-- 🗂 Global state management with Zustand
-- 🧩 Reusable UI components (Buttons, Inputs, etc.)
-- 📱 Fully mobile responsive dashboard layout
-- 🧼 Clean folder structure & best practices
+- 🗂 Global state management using Zustand
+- 🧩 Reusable global UI components
+- 📱 Mobile-responsive dashboard layout
+- 🧼 Clean, scalable folder architecture
+- 🧠 ESLint configured for code quality
+
+---
 
 ## 🧱 Tech Stack
 
-- React 18
 - Vite
+- React 18
 - TypeScript
 - Tailwind CSS
 - Zustand
 - React Router DOM
 
+---
+
 ## 📁 Project Structure
 
-├── public/ # Static assets
+```txt
+.
+├── public/                  # Static assets
 ├── src/
-│ ├── assets/ # Images, icons, static resources
-│ ├── auth/ # Authentication logic & helpers
-│ ├── components/ # Reusable global UI components
-│ ├── layouts/ # App & dashboard layouts
-│ ├── pages/ # Application pages (Login, Signup, Dashboard)
-│ ├── routes/ # Public & protected route definitions
-│ ├── store/ # Zustand global stores
-│ ├── types/ # Global TypeScript types & interfaces
-│ ├── validation/ # Form validation schemas / helpers
-│ ├── App.tsx # Root app component
-│ ├── main.tsx # Application entry point
-│ └── index.css # Global styles (Tailwind entry)
+│   ├── assets/              # Images, icons, static resources
+│   ├── auth/                # Authentication logic & helpers
+│   ├── components/          # Reusable global UI components
+│   ├── layouts/             # App & dashboard layouts
+│   ├── pages/               # Pages (Login, Signup, Dashboard)
+│   ├── routes/              # Public & protected route definitions
+│   ├── store/               # Zustand global stores
+│   ├── types/               # Global TypeScript types & interfaces
+│   ├── validation/          # Form validation schemas & helpers
+│   ├── App.tsx              # Root app component
+│   ├── main.tsx             # Application entry point
+│   └── index.css            # Global styles (Tailwind entry)
 │
 ├── .gitignore
 ├── eslint.config.js
@@ -51,7 +62,6 @@ A modern, production-ready React boilerplate built with **Vite + TypeScript**, f
 ├── tsconfig.node.json
 ├── vite.config.ts
 └── README.md
-
 
 
 ## 🚀 Getting Started
